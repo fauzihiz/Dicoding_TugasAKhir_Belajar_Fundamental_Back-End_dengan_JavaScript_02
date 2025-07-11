@@ -47,7 +47,7 @@ class AlbumsService {
     if (!albumResult.rowCount) throw new NotFoundError('Album tidak ditemukan');
 
     const songQuery = {
-      text: 'SELECT id, title, performer FROM songs WHERE album_id = $1',
+      text: 'SELECT id, title, performer FROM songs WHERE "albumId" = $1',
       values: [id],
     };
     const songResult = await this._pool.query(songQuery);
